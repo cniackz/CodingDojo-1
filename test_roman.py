@@ -42,3 +42,23 @@ def test_roman_X():
 def test_roman_L():
     number = "L"
     assert 50 == roman_to_integer(number)
+
+def test_roman_C():
+    number = "C"
+    assert 100 == roman_to_integer(number)
+
+def test_roman_D():
+    number = "D"
+    assert 500 == roman_to_integer(number)
+
+def test_roman_M():
+    number = "M"
+    assert 1000 == roman_to_integer(number)
+
+def test_roman_VX():
+    number = "VX"
+    assert -1 == roman_to_integer(number)
+
+def test_roman_1234():
+    number = 1234
+    assert -1 == roman_to_integer(number)
