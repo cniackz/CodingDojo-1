@@ -10,7 +10,10 @@ def roman_to_integer(value):
     # The idea is to make this faster and more efficient.
     pattern_1 = re.compile(r".*VX")
     pattern_2 = re.compile(r".*I[V,X,L,C,D,M]+")
+    pattern_3 = re.compile(r".*XD")
     if re.match(pattern_1,value):
+        return -1
+    if re.match(pattern_3,value):
         return -1
     if 'I' in value:
         if re.match(pattern_2,value):

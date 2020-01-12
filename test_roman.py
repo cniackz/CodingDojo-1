@@ -62,3 +62,7 @@ def test_roman_VX():
 def test_roman_1234():
     number = 1234
     assert -1 == roman_to_integer(number)
+
+def test_roman_XD():
+    number = "XD"
+    assert -1 == roman_to_integer(number)
