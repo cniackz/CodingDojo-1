@@ -6,12 +6,14 @@ def roman_to_integer(value):
     if isinstance(value,int):
         return -1
     total = 0
-    pattern = '.*VX'
-    if re.match(pattern,value):
+    # Compile the paterns prior using it thru the code.
+    # The idea is to make this faster and more efficient.
+    pattern_1 = re.compile(r".*VX")
+    pattern_2 = re.compile(r".*I[V,X,L,C,D,M]+")
+    if re.match(pattern_1,value):
         return -1
     if 'I' in value:
-        pattern = '.*I[V,X,L,C,D,M]+'
-        if re.match(pattern,value):
+        if re.match(pattern_2,value):
             total = total - 1;
             #remove I from string
             value = value.replace("I", "")
