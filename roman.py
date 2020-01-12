@@ -15,8 +15,8 @@ def roman_to_integer(value):
             total = total - 1;
             #remove I from string
             value = value.replace("I", "")
-    for c in value:
+    for letter in value:
          for item in ROMAN_NUMBERS:
-             if item[0] == c:
+             if item[0] == letter:
                  total += item[1]
     return total
