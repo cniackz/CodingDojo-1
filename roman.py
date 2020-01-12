@@ -3,18 +3,17 @@ import re
 ROMAN_NUMBERS = (('I',1),('V',5),('X',10),('L',50),('C',100),('D',500),('M',1000))
 
 def roman_to_integer(value):
-    if isinstance(value,int):
-        return -1
+    
+    # 1. Initialize variables and compile regular expressions
     total = 0
-    # Compile the paterns prior using it thru the code.
-    # The idea is to make this faster and more efficient.
-    pattern_1 = re.compile(r".*VX")
+    pattern_1 = re.compile(r"(.*VX)|(.*XD)")
     pattern_2 = re.compile(r".*I[V,X,L,C,D,M]+")
-    pattern_3 = re.compile(r".*XD")
-    if re.match(pattern_1,value):
-        return -1
-    if re.match(pattern_3,value):
-        return -1
+
+    # 2. Validation of the input
+    if isinstance(value,int) or re.match(pattern_1,value):
+        raise ValueError("{0} is not a valid roman number".format(value))
+
+    # 3. If input is valid, convert to roman number the input
     if 'I' in value:
         if re.match(pattern_2,value):
             total = total - 1;
@@ -24,4 +23,6 @@ def roman_to_integer(value):
          for item in ROMAN_NUMBERS:
              if item[0] == letter:
                  total += item[1]
+
+    # 4. Return the final result
     return total
